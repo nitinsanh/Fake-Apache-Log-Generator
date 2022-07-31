@@ -1,0 +1,62 @@
+**********How to run FAKE LOG GENERATOR ****************
+
+1. Copy all code file from Git (either zip download or creating a clone)
+
+CMD for clone:
+$ git clone https://github.com/kiritbasu/Fake-Apache-Log-Generator.git
+
+above CMD will copy all files from git repo to Laptop folder. where gitBash is running. 
+
+2. To run this code create a virtual env on your folder.
+
+$ virtualenv -p python venv
+
+to activate virtualenv in Git Bash first navigate to "Scripts" folder and run cmd
+$ . activate
+
+3. Come back to your project folder
+Run your python file 
+
+**************************************************************************************
+
+Generate a single log line to STDOUT
+
+$ python apache-fake-log-gen.py  
+Generate 100 log lines into a .log file
+
+$ python apache-fake-log-gen.py -n 100 -o LOG 
+Generate 100 log lines into a .gz file at intervals of 10 seconds
+
+$ python apache-fake-log-gen.py -n 100 -o GZ -s 10
+Infinite log file generation (useful for testing File Tail Readers)
+
+$ python apache-fake-log-gen.py -n 0 -o LOG 
+Prefix the output filename
+
+$ python apache-fake-log-gen.py -n 100 -o LOG -p WEB1
+Detailed help
+
+$ python apache-fake-log-gen.py -h
+usage: apache-fake-log-gen.py [-h] [--output {LOG,GZ,CONSOLE}]
+                              [--num NUM_LINES] [--prefix FILE_PREFIX]
+                              [--sleep SLEEP]
+
+Fake Apache Log Generator
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --output {LOG,GZ,CONSOLE}, -o {LOG,GZ,CONSOLE}
+                        Write to a Log file, a gzip file or to STDOUT
+  --num NUM_LINES, -n NUM_LINES
+                        Number of lines to generate (0 for infinite)
+  --prefix FILE_PREFIX, -p FILE_PREFIX
+                        Prefix the output file name
+  --sleep SLEEP, -s SLEEP
+                        Sleep this long between lines (in seconds)
+
+For more details:
+https://github.com/kiritbasu/Fake-Apache-Log-Generator
+https://confusedcoders.com/general-programming/aws/how-to-generate-synthetic-log-data-for-data-analysis
+
+
+
